@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{title}}</h1>
+<form action="/upload/" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	{#form.as_p#}
+	<div class="form-error">{{ form.non_field_errors }}</div>
+	{% for ff in form %}
+		<p>
+			<label for="{{ ff.id_for_label }}" class="form-label">{{ ff.label }}: </label>{{ff}}
+		
+		</p>
+	{% endfor %}
+	
+
+	<div class="form-error">
+		{{form.title.errors}}
+	</div>
+	<input type="submit" value="Добавить">
+</form>
+{% endblock %}

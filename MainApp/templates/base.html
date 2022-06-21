@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{title}}</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		{% block content %}{% endblock %}
+	</div>
+</body>
+</html>
+<style type="text/css" media="screen">
+	.container{
+		width: 80%;
+		margin: 0 auto;
+	}
+</style>
+<script type="text/javascript">
+	
+	function getCookie(name) {
+	var cookieValue = null;
+	if (document.cookie && document.cookie != '') {
+	 var cookies = document.cookie.split(';');
+	 for (var i = 0; i < cookies.length; i++) {
+	     var cookie = jQuery.trim(cookies[i]);
+	     // Does this cookie string begin with the name we want?
+	     if (cookie.substring(0, name.length + 1) == (name + '=')) {
+	         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	         break;
+	     }
+	 }
+	}
+	return cookieValue;
+	}
+</script>

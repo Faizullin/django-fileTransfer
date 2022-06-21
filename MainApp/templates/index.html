@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+	<a id='addFile' href="{% url 'upload' %}" title="">Добавить файл</a>
+	{% for i in files %}
+	
+	<div class="item-block">
+		<p class='item-sender'>{{ i.sender }}</p>
+		<div>
+			<a class='item-name' href="/media/{{i.file}}">{{i.title}}</a>
+			<a class='item-download' href="/media/{{i.file}}">Скачать</a>
+		</div>
+		
+		<a class='item-go-to' href="{{i.get_absolute_url}}">Перейти</a>
+		<a class="item-delete" href="/delete/{{i.pk}}"></a>
+		<hr>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
